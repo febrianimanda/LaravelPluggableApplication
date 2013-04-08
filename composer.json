@@ -1,0 +1,21 @@
+{
+	"require": {
+		"laravel/framework": "4.0.*",
+        "laravelbook/laravel4-powerpack": "dev-master"
+	},
+	"autoload": {
+		"classmap": [
+			"app/commands",
+			"app/controllers",
+			"app/models",
+			"app/database/migrations",
+			"app/database/seeds",
+			"app/tests/TestCase.php",
+            "workbench/calli"
+		]
+	},
+	"scripts": {
+		"post-update-cmd": "php artisan optimize"
+	},
+	"minimum-stability": "dev"
+}

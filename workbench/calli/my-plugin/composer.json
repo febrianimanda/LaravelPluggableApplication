@@ -1,0 +1,35 @@
+{
+    "name": "calli/my-plugin",
+    "description": "",
+    "authors": [
+        {
+            "name": "Callimedia ",
+            "email": "fredericchaplin@hotmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x",
+        "illuminate/events": "4.0.x",
+        "illuminate/filesystem": "4.0.x",
+        "illuminate/session": "4.0.x",
+        "illuminate/view": "4.0.x",
+        "illuminate/http": "4.0.x",
+        "illuminate/encryption": "4.0.x",
+        "illuminate/validation": "4.0.x",
+        "illuminate/log": "4.0.x",
+        "illuminate/routing": "4.0.x",
+        "illuminate/exception": "4.0.x",
+        "illuminate/socialite": "1.0.x"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations",
+            "src/controllers"
+        ],
+        "psr-0": {
+            "Calli\\MyPlugin": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}

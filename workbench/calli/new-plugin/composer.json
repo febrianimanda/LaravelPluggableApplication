@@ -1,0 +1,24 @@
+{
+    "name": "calli/new-plugin",
+    "description": "",
+    "authors": [
+        {
+            "name": "Frederic Chaplin",
+            "email": "fredericchaplin@hotmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "illuminate/support": "4.0.x"
+    },
+    "autoload": {
+        "classmap": [
+            "src/migrations",
+            "src/controllers"
+        ],
+        "psr-0": {
+            "Calli\\NewPlugin": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}

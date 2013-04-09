@@ -11,25 +11,26 @@ class LMSController extends BaseController {
 		return $response;
 	}
 	
-	public function getValue($varName)
+	public function getValue($varname)
 	{
 		$result = "no result";
 		return $result;
 	}
 	
-	public function setValue($varName, $varValue)
+	public function setValue($varname)
+	{
+		$data = file_get_contents('php://input');
+		$result = "no result";
+		return $result;
+	}
+	
+	public function getCommit()
 	{
 		$result = "no result";
 		return $result;
 	}
 	
-	public function getCommit($str)
-	{
-		$result = "no result";
-		return $result;
-	}
-	
-	public function getFinish($str)
+	public function getFinish()
 	{
 		$result = "no result";
 		return $result;
@@ -41,13 +42,13 @@ class LMSController extends BaseController {
 		return $result;
 	}
 	
-	public function getDiagnostic($errorCode)
+	public function getDiagnostic($errorcode)
 	{
 		$result = "no result";
 		return $result;
 	}
 	
-	public function getErrorString($errorCode)
+	public function getErrorString($errorcode)
 	{
 		$result = "no result";
 		return $result;

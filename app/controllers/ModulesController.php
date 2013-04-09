@@ -26,4 +26,10 @@ class ModulesController extends BaseController {
 		Log::info('an event was fired');
 		return View::make('modules')->with(array('modulesList'=>$modulesListResult, 'foldersList'=>$foldersListResult));
 	}
+	
+	public function showModule($moduleId)
+	{
+		$module = Module::find($moduleId);
+		return View::make('rte')->with(array('module'=>$module));
+	}
 }

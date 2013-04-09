@@ -28,6 +28,21 @@ Route::post('signup', 'UserController@postUserSignUp');
 Route::get('userhome', 'HomeController@showHome');
 Route::get('modules', 'ModulesController@showModules');
 Route::get('profile', 'ProfileController@showProfile');
+Route::get('showmodule/{moduleId}', 'ModulesController@showModule');
+
+
+/*---------LMS functions ---------------------------------------------------*/
+Route::get('lms/initialize', 'LMSController@initialize');
+Route::get('lms/value/{varname}', 'LMSController@getValue');
+Route::post('lms/value/{varname}', 'LMSController@setValue');
+Route::get('lms/commit', 'LMSController@getCommit');
+Route::get('lms/finish', 'LMSController@getFinish');
+Route::get('lms/lasterror', 'LMSController@getLastError');
+Route::get('lms/diagnostic/{errorcode}', 'LMSController@getDiagnostic');
+Route::get('lms/errorstring/{errorcode}', 'LMSController@getErrorString');
+
+
+
 
 
 

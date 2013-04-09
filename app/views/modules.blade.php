@@ -40,7 +40,8 @@
 							$moduleLink = $module->url;
 							$moduleImg = $module->img;
 						?>
-							<a href="<?php echo URL::asset($moduleLink); ?>"><img src="<?php echo URL::asset($moduleImg); ?>" alt=""></a>
+							<a href="<?php echo "showmodule/".$module->id ?>"><img src="<?php echo URL::asset($moduleImg); ?>" alt=""></a>
+							
 					    
 					    
 					    <h4> <?php echo($module->title);?></h4>

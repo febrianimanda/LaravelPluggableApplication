@@ -33,9 +33,9 @@ var debug = true;
 // ------------------------------------------
 //   SCORM RTE Functions - Initialization
 // ------------------------------------------
-function LMSInitialize(dummyString) { 
+function LMSInitialize(dummyString) {
 	$.get('../lms/initialize', function(data) {
-		 if (debug) alert('---- LMSInitialize ----'+data);
+		 if (debug) console.log('---- LMSInitialize ----'+data);
 		return true;
 	});	
 }
@@ -44,22 +44,25 @@ function LMSInitialize(dummyString) {
 //   SCORM RTE Functions - Getting and Setting Values
 // ------------------------------------------
 function LMSGetValue(varname) {
-	$.get('../lms/value/'+varname, function(data) {
-		if (debug) alert('Value of '+varname+' = '+data);
+	var sess = window.parent.sess; 
+	$.get('../lms/'+sess+'/value/'+varname, function(data) {
+		if (debug) console.log('Value of '+varname+' = '+data);
 		return data;
 	});
 }
 
 function LMSSetValue(varname,varvalue) {
-	$.post('../lms/value/'+varname, varvalue, function(data) {
-		if (debug) alert('Value of '+varname+' stored as '+data);
+	var sess = window.parent.sess; 
+	$.post('../lms/'+sess+'/value/'+varname, varvalue, function(data) {
+		if (debug) console.log('Value of '+varname+' stored as '+data);
 		return data;
 	});
 }
 
 function LMSCommit(dummyString) {
-	$.get('../lms/commit', function(data) {
-		 if (debug) alert('---- LMScommit ----'+data);
+	var sess = window.parent.sess; 
+	$.get('../lms/'+sess+'/commit', function(data) {
+		 if (debug) console.log('---- LMScommit ----'+data);
 		return true;
 	});
 }
@@ -68,8 +71,9 @@ function LMSCommit(dummyString) {
 //   SCORM RTE Functions - Closing The Session
 // ------------------------------------------
 function LMSFinish(dummyString) {
-	$.get('../lms/finish', function(data) {
-		 if (debug) alert('---- LMSfinish ----'+data);
+	var sess = window.parent.sess; 
+	$.get('../lms/'+sess+'/finish', function(data) {
+		 if (debug) console.log('---- LMSfinish ----'+data);
 		return true;
 	});
 }
@@ -78,22 +82,25 @@ function LMSFinish(dummyString) {
 //   SCORM RTE Functions - Error Handling
 // ------------------------------------------
 function LMSGetLastError() {
-	$.get('../lms/lasterror', function(data) {
-		 if (debug) alert('---- Last error ----'+data);
+	var sess = window.parent.sess; 
+	$.get('../lms/'+sess+'/lasterror', function(data) {
+		 if (debug) console.log('---- Last error ----'+data);
 		return 0;
 	});
 }
 
 function LMSGetDiagnostic(errorCode) {
-	$.get('../lms/diagnostic/'+errorCode, function(data) {
-		 if (debug) alert('---- Diagnostic ----'+data);
+	var sess = window.parent.sess; 
+	$.get('../lms/'+sess+'/diagnostic/'+errorCode, function(data) {
+		 if (debug) console.log('---- Diagnostic ----'+data);
 		return "diagnostic string";
 	});
 }
 
 function LMSGetErrorString(errorCode) {
- $.get('../lms/errorstring/'+errorCode, function(data) {
-		 if (debug) alert('---- Error String ----'+data);
+	var sess = window.parent.sess; 
+	$.get('../lms/'+sess+'/errorstring/'+errorCode, function(data) {
+		 if (debug) console.log('---- Error String ----'+data);
 		return "error string";
 	});
 }

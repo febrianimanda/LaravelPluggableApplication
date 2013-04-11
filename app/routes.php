@@ -33,13 +33,14 @@ Route::get('showmodule/{moduleId}', 'ModulesController@showModule');
 
 /*---------LMS functions ---------------------------------------------------*/
 Route::get('lms/initialize', 'LMSController@initialize');
-Route::get('lms/value/{varname}', 'LMSController@getValue');
-Route::post('lms/value/{varname}', 'LMSController@setValue');
-Route::get('lms/commit', 'LMSController@getCommit');
-Route::get('lms/finish', 'LMSController@getFinish');
-Route::get('lms/lasterror', 'LMSController@getLastError');
-Route::get('lms/diagnostic/{errorcode}', 'LMSController@getDiagnostic');
-Route::get('lms/errorstring/{errorcode}', 'LMSController@getErrorString');
+Route::get('lms/{liveSession}/value/{varname}', 'LMSController@getValue');
+
+Route::post('lms/{liveSession}/value/{varname}', 'LMSController@setValue');
+Route::get('lms/{liveSession}/commit', 'LMSController@getCommit');
+Route::get('lms/{liveSession}/finish', 'LMSController@getFinish');
+Route::get('lms/{liveSession}/lasterror', 'LMSController@getLastError');
+Route::get('lms/{liveSession}/diagnostic/{errorcode}', 'LMSController@getDiagnostic');
+Route::get('lms/{liveSession}/errorstring/{errorcode}', 'LMSController@getErrorString');
 
 
 

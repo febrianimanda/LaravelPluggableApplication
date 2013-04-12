@@ -6,11 +6,11 @@ class LMSController extends BaseController {
 	* Used by a lms to intialize a learning session
 	* 
 	*/	
-	public function initialize()
+	public function initialize($module)
 	{
-		$actualModuleId = Session::get('viewModule');
+	
 		
-		$learningSession = LearningSession::create(array('cmi_core_student_id' =>  Auth::user()->id, 'sco_id'=>$actualModuleId, 'cmi_core_student_name' => Auth::user()->lastname));
+		$learningSession = LearningSession::create(array('cmi_core_student_id' =>  Auth::user()->id, 'sco_id'=>$module, 'cmi_core_student_name' => Auth::user()->lastname));
 		$learningSession->save();
 		
 		Session::put('actualSession', $learningSession->id);
@@ -23,8 +23,9 @@ class LMSController extends BaseController {
 	* Used by a lms toset a value for the session
 	* 
 	*/
-	public function getValue($liveSession, $varname)
+	public function getValue($varname)
 	{
+		$liveSession = Session::get('actualSession');
 		$learningSession = LearningSession::find((int)$liveSession);
 		if (isset($learningSession) && $learningSession != null){
 			//explose variable name with '.' separator for targeted use 
@@ -110,15 +111,15 @@ class LMSController extends BaseController {
 		return Response::make($result);
 	}
 	
-	public function setValue($liveSession,$varname)
+	public function setValue($varname)
 	{
-		$sessionToFind = (int)$liveSession;
-		$learningSession = LearningSession::find($sessionToFind);
+		$liveSession = Session::get('actualSession');
+		$learningSession = LearningSession::find($liveSession);
 		if (isset($learningSession) && $learningSession != null){
 			
 			$data = file_get_contents('php://input');
-			
 			/*
+			
 			$scormProperty = explode('.', $varname);
 			if ($scormProperty[0] != 'cmi'){
 				//TODO : catch exception
@@ -196,9 +197,9 @@ class LMSController extends BaseController {
 			$result = 'session lost';
 		}
 		return Response::make($result);
+			*/
 			
 			
-			// */
 			if ($varname == 'cmi.core._children' || $varname == 'cmi.core.student_id' || $varname == 'cmi.core.student_name') {
 				return Response::make("not possible");
 			}else {
@@ -213,6 +214,7 @@ class LMSController extends BaseController {
 			$result = 'session lost : '.$learningSession->id;
 			return Response::make($result);
 		}
+		
 	}
 	
 	public function getCommit()

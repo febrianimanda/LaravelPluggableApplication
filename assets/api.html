@@ -29,13 +29,13 @@ Boston, MA  02110-1301, USA.
 */
 
 var debug = true;
-
 // ------------------------------------------
 //   SCORM RTE Functions - Initialization
 // ------------------------------------------
 function LMSInitialize(dummyString) {
-	$.get('../lms/initialize', function(data) {
-		 if (debug) console.log('---- LMSInitialize ----'+data);
+	var module = window.parent.module; 
+	$.get('../lms/'+module+'/initialize', function(data) {
+		 if (debug) console.log('---- LMSInitialize ----');
 		return true;
 	});	
 }
@@ -44,25 +44,24 @@ function LMSInitialize(dummyString) {
 //   SCORM RTE Functions - Getting and Setting Values
 // ------------------------------------------
 function LMSGetValue(varname) {
-	var sess = window.parent.sess; 
-	$.get('../lms/'+sess+'/value/'+varname, function(data) {
+	$.get('../lms/value/'+varname, function(data) {
 		if (debug) console.log('Value of '+varname+' = '+data);
 		return data;
 	});
 }
 
 function LMSSetValue(varname,varvalue) {
-	var sess = window.parent.sess; 
-	$.post('../lms/'+sess+'/value/'+varname, varvalue, function(data) {
+	
+	$.post('../lms/value/'+varname, varvalue, function(data) {
 		if (debug) console.log('Value of '+varname+' stored as '+data);
 		return data;
 	});
 }
 
 function LMSCommit(dummyString) {
-	var sess = window.parent.sess; 
-	$.get('../lms/'+sess+'/commit', function(data) {
-		 if (debug) console.log('---- LMScommit ----'+data);
+	
+	$.get('../lms/commit', function(data) {
+		 if (debug) console.log('---- LMScommit ----');
 		return true;
 	});
 }
@@ -71,8 +70,8 @@ function LMSCommit(dummyString) {
 //   SCORM RTE Functions - Closing The Session
 // ------------------------------------------
 function LMSFinish(dummyString) {
-	var sess = window.parent.sess; 
-	$.get('../lms/'+sess+'/finish', function(data) {
+	
+	$.get('../lms/finish', function(data) {
 		 if (debug) console.log('---- LMSfinish ----'+data);
 		return true;
 	});
@@ -82,24 +81,24 @@ function LMSFinish(dummyString) {
 //   SCORM RTE Functions - Error Handling
 // ------------------------------------------
 function LMSGetLastError() {
-	var sess = window.parent.sess; 
-	$.get('../lms/'+sess+'/lasterror', function(data) {
+	
+	$.get('../lms/lasterror', function(data) {
 		 if (debug) console.log('---- Last error ----'+data);
 		return 0;
 	});
 }
 
 function LMSGetDiagnostic(errorCode) {
-	var sess = window.parent.sess; 
-	$.get('../lms/'+sess+'/diagnostic/'+errorCode, function(data) {
+	
+	$.get('../lms/diagnostic/'+errorCode, function(data) {
 		 if (debug) console.log('---- Diagnostic ----'+data);
 		return "diagnostic string";
 	});
 }
 
 function LMSGetErrorString(errorCode) {
-	var sess = window.parent.sess; 
-	$.get('../lms/'+sess+'/errorstring/'+errorCode, function(data) {
+	
+	$.get('../lms/errorstring/'+errorCode, function(data) {
 		 if (debug) console.log('---- Error String ----'+data);
 		return "error string";
 	});

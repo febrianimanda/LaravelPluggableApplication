@@ -30,7 +30,7 @@ class ModulesController extends BaseController {
 	public function showModule($moduleId)
 	{
 		$module = Module::find($moduleId);
-		
+		Session::put('viewModule', $module->id );
 		return View::make('rte')->with(array('module'=>$module));
 	}
 }

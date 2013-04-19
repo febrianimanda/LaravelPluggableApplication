@@ -29,13 +29,14 @@ Boston, MA  02110-1301, USA.
 */
 
 var debug = true;
+
 // ------------------------------------------
 //   SCORM RTE Functions - Initialization
 // ------------------------------------------
 function LMSInitialize(dummyString) {
 	var module = window.parent.module; 
 	$.get('../lms/'+module+'/initialize', function(data) {
-		 if (debug) console.log('---- LMSInitialize ----');
+		if (debug) console.log('---- LMSInitialize ----'+data);
 		return true;
 	});	
 }
@@ -70,10 +71,10 @@ function LMSCommit(dummyString) {
 //   SCORM RTE Functions - Closing The Session
 // ------------------------------------------
 function LMSFinish(dummyString) {
-	
+	console.log("calling LMSFinish");
 	$.get('../lms/finish', function(data) {
 		 if (debug) console.log('---- LMSfinish ----'+data);
-		return true;
+		return data;
 	});
 }
 

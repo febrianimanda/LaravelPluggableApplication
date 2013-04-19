@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Whoops' => $vendorDir . '/filp/whoops/src/',
     'Symfony\\Component\\Translation\\' => $vendorDir . '/symfony/translation/',
     'Symfony\\Component\\Routing\\' => $vendorDir . '/symfony/routing/',
     'Symfony\\Component\\Process\\' => $vendorDir . '/symfony/process/',
@@ -15,13 +16,22 @@ return array(
     'Symfony\\Component\\Filesystem\\' => $vendorDir . '/symfony/filesystem/',
     'Symfony\\Component\\EventDispatcher\\' => $vendorDir . '/symfony/event-dispatcher/',
     'Symfony\\Component\\DomCrawler\\' => $vendorDir . '/symfony/dom-crawler/',
+    'Symfony\\Component\\Debug\\' => $vendorDir . '/symfony/debug/',
     'Symfony\\Component\\CssSelector\\' => $vendorDir . '/symfony/css-selector/',
     'Symfony\\Component\\Console\\' => $vendorDir . '/symfony/console/',
     'Symfony\\Component\\BrowserKit\\' => $vendorDir . '/symfony/browser-kit/',
     'Psr\\Log\\' => $vendorDir . '/psr/log/',
+    'Predis' => $vendorDir . '/predis/predis/lib/',
     'PHPParser' => $vendorDir . '/nikic/php-parser/lib/',
     'Monolog' => $vendorDir . '/monolog/monolog/src/',
     'LaravelBook\\Laravel4Powerpack' => $vendorDir . '/laravelbook/laravel4-powerpack/src/',
     'Illuminate' => $vendorDir . '/laravel/framework/src/',
+    'Doctrine\\DBAL\\' => $vendorDir . '/doctrine/dbal/lib/',
+    'Doctrine\\Common\\Lexer\\' => $vendorDir . '/doctrine/lexer/lib/',
+    'Doctrine\\Common\\Inflector\\' => $vendorDir . '/doctrine/inflector/lib/',
+    'Doctrine\\Common\\Collections\\' => $vendorDir . '/doctrine/collections/lib/',
+    'Doctrine\\Common\\Cache\\' => $vendorDir . '/doctrine/cache/lib/',
+    'Doctrine\\Common\\Annotations\\' => $vendorDir . '/doctrine/annotations/lib/',
+    'Doctrine\\Common\\' => $vendorDir . '/doctrine/common/lib/',
     'ClassPreloader' => $vendorDir . '/classpreloader/classpreloader/src/',
 );

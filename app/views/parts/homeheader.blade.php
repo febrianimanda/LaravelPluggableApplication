@@ -10,7 +10,7 @@
                         <span class="icon-bar"></span>
                     </a>
                     <h1>
-                        <a class="brand" href="./">Application Modulaire</a>
+                        <a class="brand" href="./"></a>
                     </h1>
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right">
